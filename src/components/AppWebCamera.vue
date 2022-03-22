@@ -1,6 +1,11 @@
+<template>
+    <div class="videobg" v-if="!screenOn"></div>
+    <video ref="webcam" class="video" :class="{showvideo:screenOn}"></video>
+</template>
+
 <script setup lang="ts">
 import { onMounted, watch } from "@vue/runtime-core";
-import { computed, Ref, ref,  } from "vue";
+import { computed, ref,  } from "vue";
 import { useStore } from "vuex";
 
 const store = useStore()
@@ -23,10 +28,7 @@ onMounted(()=>{
 })
    
 </script>
-<template>
-    <div class="videobg" v-if="!screenOn"></div>
-    <video ref="webcam" class="video" v-if="screenOn"></video>
-</template>
+
 <style scoped>
 .videobg{
     height: 400px;
@@ -36,5 +38,9 @@ onMounted(()=>{
 .video{
     width: 640px;
     height: 400px;
+    display: none;
+}
+.showvideo{
+    display: block;
 }
 </style>
