@@ -12,16 +12,14 @@
 
 <script setup lang="ts">
 import { ref, defineEmits } from "vue";
-import { useStore } from "vuex";
+
 const emit = defineEmits<{
   (e: "change", value: boolean): void;
 }>();
-const store = useStore()
+
 const isActive = ref(false);
 function changeActiveClass() {
   isActive.value = !isActive.value;
-  
-  store.dispatch('changeStateCamera', isActive.value)  
   emit("change", isActive.value);
 }
 </script>

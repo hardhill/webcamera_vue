@@ -138,6 +138,7 @@ export class WebCam{
           if(this._snapSoundElement!= null){
             this._snapSoundElement.play();
           }
+          debugger
           this._canvasElement.height = this._webcamElement.scrollHeight;
           this._canvasElement.width = this._webcamElement.scrollWidth;
           let context = this._canvasElement.getContext('2d');
